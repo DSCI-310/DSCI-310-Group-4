@@ -8,7 +8,7 @@ all : results/heatmap.png results/limit_bal_dist.png results/class_imbalance.png
 
 # read data from url into csv and write to file
 data/card_default_data.csv: scripts/read_data_from_url.py
-	python3 scripts/read_data_from_url.py
+	python3 scripts/read_data_from_url.py https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls data/card_default_data.csv
 
 # preprocess and split data into train and test datasets
 data/processed_train_data.csv data/processed_test_data.csv data/processed_X_train_data.csv data/processed_X_test_data.csv data/processed_y_train_data.csv data/processed_y_test_data.csv: scripts/read_data_from_url.py data/card_default_data.csv
