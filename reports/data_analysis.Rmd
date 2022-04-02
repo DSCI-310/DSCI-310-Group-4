@@ -1,17 +1,6 @@
 ---
 title: 'DSCI 310 Group 4: Default payments in Taiwan and comparison of the predictive accuracy of probability of default'
 author: "Shravan Chaniara, Jordan Yu, Diana Liang, Hannah Martin"
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .Rmd
-      format_name: rmarkdown
-      format_version: '1.2'
-      jupytext_version: 1.11.5
-  kernelspec:
-    display_name: R
-    language: R
-    name: ir
 output:
   bookdown::html_document2:
     toc: true
@@ -118,7 +107,8 @@ knitr::kable(head(df), caption = "Default Credit Card Dataset")
 Before any data analysis can be done let's check if the dataset has null/missing values that may affect further analysis:
 
 ```{r clean-data, message=FALSE, warning=FALSE}
-df.isnull().sum()
+data_set <- df.isnull().sum()
+knitr::kable(data_set)
 ```
 Great! The dataset is super clean, and no missing value is found.
 
@@ -127,7 +117,8 @@ Great! The dataset is super clean, and no missing value is found.
 This part we have a look at some basic statistics of the training set:
 
 ````{r attribute box, echo=FALSE, fig.dim = c(8, 6), fig.cap="Summary Stats."}
-knitr::include_graphics("../results/summary_stats.csv")
+summary_stats <- read_csv("../results/summary_stats.csv")
+knitr::kable(summary_stats)
 ````
 
 We can see the following information:
@@ -200,6 +191,8 @@ Looking at the above plots on repayment status shows that if a client defaults o
 knitr::include_graphics("../results/class_imbalance.png")
 ```
 The above plot shows the percentage of rows with default payment = 0 versus default payment = 1. Cleary there is class imbalance in this dataset. Because of this, we will use the area under the Receiver Operating Characterisitc curve (ROC AUC) as our primary metric to evaluate our model instead of accuracy, which tends to be missleading in cases of class imbalance. ROC AUC evalauates how good the model is as distinguishing between classes, and gives a more accurate sense of how well our model generalizes when dealing with class imbalance.
+
+
 
 
 
