@@ -1,0 +1,14 @@
+---
+title: 'DSCI 310 Group 4: Default payments in Taiwan and comparison of the predictive accuracy of probability of default'
+author: "Shravan Chaniara, Jordan Yu, Diana Liang, Hannah Martin"
+output:
+  bookdown::html_document2:
+      toc: true
+      toc_depth: 2
+  bookdown::pdf_document2:
+      toc: true
+      toc_depth: 2
+  github_document
+
+bibliography: references.bib  
+---
