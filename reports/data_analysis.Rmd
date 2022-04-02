@@ -42,9 +42,6 @@ First, we load and tidy the data. The dataset was split into a 80% training and 
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(tidymodels)
-library(ggplot2)
-library(GGally)
-library(rlang)
 ```
 
 First we have a look at our dataset:
